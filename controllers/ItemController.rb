@@ -1,6 +1,12 @@
 class ItemController < ApplicationController
 	
-
+	# this is called a filter and will be run before all requests in this route
+	before do
+		if !session[:logged_in]
+			session[:message] = "You must be logged in to do that"
+			redirect '/user/login'
+		end
+	end
 	# index route
 	get '/' do
 		@items = Item.all # beautiful isn't it
