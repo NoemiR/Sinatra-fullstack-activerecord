@@ -47,5 +47,12 @@ class ItemController < ApplicationController
 		redirect '/items'
 	end
 
+	# edit route
+	get '/edit/:id' do
+		@item = Item.find params[:id]
+		@page = "Edit Item #{@item.id}" #why am i using interpolation here?  try with concatenation and see what happens.
+		erb :edit_item
+	end
+
 
 end
