@@ -3,8 +3,12 @@ class ItemController < ApplicationController
 
 	# index route
 	get '/' do
-		"this is get route in ItemController"
-	end
+		@items = Item.all # beautiful isn't it
+		# @items.to_json
+		@page = "Index of items"
+		erb :item_index
+  	end
+
 
 	# add route 
 	get '/add' do
@@ -31,6 +35,7 @@ class ItemController < ApplicationController
 
 	# hey there's a .to_json method. cool.
 	@item.to_json
+	redirect '/items'
 
 end
 
