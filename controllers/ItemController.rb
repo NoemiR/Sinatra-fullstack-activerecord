@@ -1,4 +1,5 @@
 class ItemController < ApplicationController
+	
 
 	# index route
 	get '/' do
@@ -18,13 +19,19 @@ class ItemController < ApplicationController
 	erb :add_item 
 	end
 	# create route
-  post '/' do
-    # params are in a hash called params, check your terminal
-    # extra puts statements help you find this output amongst the very verbose terminal output
-    puts "HERE IS THE PARAMS---------------------------------------"
-    pp params
-    puts "---------------------------------------------------------"
-    "you posted. check your terminal."
-  end
+	post '/' do
+
+	pp params
+
+	# this is how you add something with ActiveRecord.  
+	@item = Item.new
+	@item.title = params[:title]
+	@item.user_id = 1 # for now
+	@item.save
+
+	# hey there's a .to_json method. cool.
+	@item.to_json
+
+end
 
 end

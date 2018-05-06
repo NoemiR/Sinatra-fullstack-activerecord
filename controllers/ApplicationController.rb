@@ -8,7 +8,7 @@ class ApplicationController < Sinatra::Base
  		:database => 'item'
 	)
 
-	set :views, File.expand_path('../views', File.dirname(__FILE__))
+	set :views, File.expand_path('../views', 'hello.erb')
 
 
 	get '/' do
