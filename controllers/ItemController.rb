@@ -37,6 +37,15 @@ class ItemController < ApplicationController
 	@item.to_json
 	redirect '/items'
 
-end
+	end
+		delete '/:id' do
+		# there are many ways to do this find statement, this is just one
+		# remember you can play around with ActiveRecord by adding binding.pry 
+		# and trying stuff out
+		@item = Item.find params[:id]
+		@item.destroy
+		redirect '/items'
+	end
+
 
 end
