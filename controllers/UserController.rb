@@ -12,7 +12,7 @@ class UserController < ApplicationController
 		erb :register
 	end
 	get '/logout' do
-		session[:username] = nil
+		session[:user_id] = nil
 		session[:logged_in] = false
 		session[:user_id] = @user.id
 		redirect '/user/login'
