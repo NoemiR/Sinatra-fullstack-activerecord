@@ -14,7 +14,7 @@ class UserController < ApplicationController
 	get '/logout' do
 		session[:user_id] = nil
 		session[:logged_in] = false
-		session[:user_id] = @user.id
+		session[:username]= nil
 		redirect '/user/login'
 	end
 
